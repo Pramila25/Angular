@@ -1,0 +1,19 @@
+<h1>welcome to assignment</h1>
+<!--<button mat-button color="basic">but1</button>
+<button mat-raised-button color="primary">but2</button>
+<button mat-flat-button>flat</button>
+<button mat-stroked-button>stroke</button>
+<button mat-icon-button>icon</button>
+<button mat-fab>fab</button>
+<button mat-mini-fab >mif</button> -->
+
+<div class="container">
+    <h1><nav>
+    <a routerLink="/home">{{appName}}</a>
+</nav></h1>
+<mat-slide-toggle color="primary" (click)="login()">
+Login
+</mat-slide-toggle>
+</div>
+
+<router-outlet></router-outlet>

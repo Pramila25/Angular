@@ -1,0 +1,41 @@
+<!--<div *ngFor ="let asgn of assignments"
+[ngStyle] ="{'color': asgn.submitted ? 'green':'red'}">-->
+
+<!--<div *ngFor ="let asgn of assignments"
+[ngClass] ="{submitted:asgn.submitted,unsubmitted:!asgn.submitted}">-->
+<mat-horizontal-stepper>
+    <mat-step label="Assignment Name">
+<form #addassignment class ="form">
+    <mat-form-field>
+        <input matInput  #assignmentnames  [(ngModel)] ="name" name ="name"
+        placeholder="Enter Assignment Name">
+    </mat-form-field>
+    <button mat-stroked-button color="primary" matStepperNext>Next</button>
+    </form>
+</mat-step>
+<mat-step label="Due Date">
+    <form  class ="form">
+            
+    <mat-form-field>
+        <input matInput #assDate [matDatepicker]="picker" [(ngModel)]="dueDate" 
+         name="asgnname" placeholder="when is your assignemnt due">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-stroked-button color="primary" matStepperNext>Next</button>
+      <button mat-stroked-button color="warn" matStepperPrevious>Previous</button>
+    </form>
+</mat-step>
+<mat-step label="Submit">
+<form  class ="form"> 
+<button mat-stroked-button color="primary" matStepperPrevious>Previous</button> 
+  <button  mat-raised-button color="primary" 
+(click) ="addAssign(); addassignment.reset()" routerLink="/home">
+Add assignment
+  </button>
+  </form>
+</mat-step>
+  </mat-horizontal-stepper>
+  <!--<p>{{name}}</p>
+  <p>{{dueDate}}</p>-->
+

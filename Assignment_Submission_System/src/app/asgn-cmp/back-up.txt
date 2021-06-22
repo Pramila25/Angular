@@ -1,0 +1,69 @@
+<mat-tab-group>
+  <mat-tab label="Due">
+    <cdk-virtual-scroll-viewport class ="Example-viewport"
+    style="height:30vh"
+    itemSize="50">
+    <div *cdkVirtualFor="let asgn of assignments">
+<mat-card *ngIf="!asgn.submitted">
+  <div class="header">
+    <div class="left">
+    <mat-card-title>{{asgn.name}}</mat-card-title>
+   <!-- <mat-card-subtitle *ngIf="asgn.submitted">Submitted</mat-card-subtitle> -->
+    <mat-card-subtitle >Due {{asgn.dueDate | date}}</mat-card-subtitle>
+    </div>
+    <div class="right">
+        <img mat-card-avatar src='../../assets/sub2.png' alt="" class="card-image">
+    </div>
+  </div>
+<!--<mat-card-content>An Example of displaying content on a card</mat-card-content>
+<img mat-card-image src='../../assets/download.jpg' alt="" class="card-image">
+<mat-card-actions>
+  <button mat-flat-button color="link" (click)="selectItem(asgn)">Detail</button>
+</mat-card-actions>
+<mat-card-footer>packet publishing</mat-card-footer>-->
+</mat-card>
+</div></cdk-virtual-scroll-viewport>
+</mat-tab>
+
+<mat-tab label="Submitted">
+    <cdk-virtual-scroll-viewport class ="Example-viewport"
+    style="height:30vh"
+    itemSize="50">
+    <div *cdkVirtualFor="let asgn of assignments">
+     
+<mat-card *ngIf="asgn.submitted">
+  <div class="header">
+    <div class="left">
+    <mat-card-title>{{asgn.name}}</mat-card-title>
+   <!-- <mat-card-subtitle *ngIf="asgn.submitted">Submitted</mat-card-subtitle> -->
+    <mat-card-subtitle >Due {{asgn.dueDate | date}}</mat-card-subtitle>
+    </div>
+    <div class="right">
+        <img mat-card-avatar src='../../assets/sub2.png' alt="" class="card-image">
+    </div>
+  </div>
+<!--<mat-card-content>An Example of displaying content on a card</mat-card-content>
+<img mat-card-image src='../../assets/download.jpg' alt="" class="card-image">
+<mat-card-actions>
+  <button mat-flat-button color="link" (click)="selectItem(asgn)">Detail</button>
+</mat-card-actions>
+<mat-card-footer>packet publishing</mat-card-footer>-->
+</mat-card>
+</div>
+</cdk-virtual-scroll-viewport></mat-tab>
+</mat-tab-group>
+<!--<mat-list *ngFor ="let asgn of assignments">-->
+  <!--<nav><a routerLink="/assignments/{{asgn.id}}">-->
+  <!--<h2 mat-subheader> {{asgn.dueDate | date}} </h2>
+  <mat-list-item (click)="selectItem(asgn)" >
+
+    <p appSubmitted *ngIf ="asgn.submitted; else unsub">
+  {{asgn.name}}  has been submitted </p>
+
+  <ng-template #unsub>
+ <p>{{asgn.name}}   has not been submitted </p>
+ </ng-template>
+ <mat-divider></mat-divider>
+</mat-list-item>-->
+<!--</a></nav>-->
+<!--</mat-list>-->
